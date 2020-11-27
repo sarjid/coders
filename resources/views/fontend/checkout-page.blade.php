@@ -79,6 +79,9 @@
                                 <div class="form-group">
                                     <label>Postcode / Zip <span class="required">*</span></label>
                                     <input type="text" class="form-control" placeholder="your post code" name="post_code" data-validation="required"  value="{{ old('post_code') }}">
+                                    @error('post_code')
+                                        <span class="text-center">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -191,7 +194,7 @@
                             <div class="payment-method">
                                 <h5 class="title">Select Payment Method</h5>
                                 <p>
-                                    <input type="radio" id="bkash" name="payment_method" checked value="bkash">
+                                    <input type="radio" id="bkash" name="payment_method"  value="bkash">
                                     <label for="bkash">Bkash</label>
                                 </p>
                                 <p>
@@ -202,6 +205,9 @@
                                     <input type="radio" id="shureCash" name="payment_method" value="shureCash">
                                     <label for="shureCash">ShureCash</label>
                                 </p>
+                                @error('payment_method')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <button type="submit"  class="default-btn"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Payment Process</span><i class="bx bx-paper-plane icon-arrow after"></i></button>

@@ -118,6 +118,7 @@ class UserController extends Controller
             $name_gen=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
             Image::make($image)->resize(580,610)->save('media/user/profile/'.$name_gen);
             $save_url = 'media/user/profile/'.$name_gen;
+            
             User::findOrFail(Auth::id())->update([
                 'image' => $save_url
             ]);

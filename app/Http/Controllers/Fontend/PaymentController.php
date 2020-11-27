@@ -15,6 +15,21 @@ class PaymentController extends Controller
 {
    // data from checkout page and get payment page 
    public function paymentPage(Request $request){
+    $request->validate([
+      'first_name' => 'required',
+      'last_name' => 'required',
+      'email' => 'required',
+      'phone' => 'required',
+      'institute_name' => 'required',
+      'address' => 'required',
+      'state' => 'required',
+      'post_code' => 'required|numeric',
+      'order_notes' => 'required',
+      'payment_method' => 'required',
+    ],[
+      'payment_method.required' => 'select any payment method',
+    ]);
+
       $data = array();
       $data['first_name'] = $request->first_name;
       $data['last_name'] = $request->last_name;
